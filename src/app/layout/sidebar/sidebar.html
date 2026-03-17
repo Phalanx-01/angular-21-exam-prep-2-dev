@@ -1,14 +1,15 @@
 <nav>
-    <ul>
-        @for (item of navItems(); track item.path) {
-            <li>
-                <a [routerLink]="item.path">
-                    <span>{{ item.icon }}</span>
-                    <span>{{ item.label }}</span>
-                </a>
-            </li>
-        }
-    </ul>
+  <ul>
+    @for (item of navItems(); track item.path) {
+      <li>
+        <a [routerLink]="item.path">
+          <span>{{ item.icon }}</span>
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+    }
+  </ul>
 
-    <p>{{ itemCount() }} Einträge</p>
-</nav>>
+  <p>{{ itemCount() }} Einträge</p>
+</nav>
+>

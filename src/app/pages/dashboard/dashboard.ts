@@ -13,7 +13,6 @@ interface StatCard {
   styleUrl: './dashboard.scss',
 })
 export class Dashboard {
-
   constructor() {
     effect(() => {
       console.log('Stats updated:', this.cards);
@@ -21,12 +20,11 @@ export class Dashboard {
   }
 
   protected readonly cards = signal<StatCard[]>([
-    { title: 'Users', value:1250, trend: 'up' }
-    { title: 'Revenue', value:45000, trend: 'up' },
+    { title: 'Users', value: 1250, trend: 'up' },
+    { title: 'Revenue', value: 45000, trend: 'up' },
     { title: 'Orders', value: 320, trend: 'down' },
-    { title: 'Tickets', value: 15, trend: 'stable' }
+    { title: 'Tickets', value: 15, trend: 'stable' },
   ]);
 
-  protected readonly upTrends = computed(() => this.cards().filter(card => card.trend === 'up'));
-
+  protected readonly upTrends = computed(() => this.cards().filter((card) => card.trend === 'up'));
 }

@@ -1,30 +1,30 @@
 <h2>Dashboard</h2>
 
 <div class="cards-grid">
-    @for (card of cards(); track card.title){
-        <div class="card">
-            <h3>{{ card.title }}</h3>
-            <p class="value">{{ card.value }}</p>
+  @for (card of cards(); track card.title) {
+    <div class="card">
+      <h3>{{ card.title }}</h3>
+      <p class="value">{{ card.value }}</p>
 
-            <!-- @switch für verschiedene Trend-Anzeigen -->
-             @switch (card.trend) {
-                @case ('up') {
-                    <span class="trend up">⬆️ Steigend</span>
-                }
-                @case ('down') {
-                    <span class="trend down">⬇️ Fallend</span>
-                }
-                @case ('stable') {
-                    <span class="trend stable">➡️ Stabil</span>
-                }
-             }
-        </div>
-    }
+      <!-- @switch für verschiedene Trend-Anzeigen -->
+      @switch (card.trend) {
+        @case ('up') {
+          <span class="trend up">⬆️ Steigend</span>
+        }
+        @case ('down') {
+          <span class="trend down">⬇️ Fallend</span>
+        }
+        @case ('stable') {
+          <span class="trend stable">➡️ Stabil</span>
+        }
+      }
+    </div>
+  }
 </div>
 
 <h3>Positive Trends</h3>
 <ul>
-    @for (card of upTrends(); track card.title) {
-        <li>{{ card.title }}: {{ card.value }}</li>
-    }
+  @for (card of upTrends(); track card.title) {
+    <li>{{ card.title }}: {{ card.value }}</li>
+  }
 </ul>
