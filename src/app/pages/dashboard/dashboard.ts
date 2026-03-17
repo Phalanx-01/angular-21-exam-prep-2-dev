@@ -1,4 +1,5 @@
 import { Component, computed, effect, signal } from '@angular/core';
+import { AddCardForm } from "./components/add-card-form/add-card-form";
 
 interface StatCard {
   title: string;
@@ -8,7 +9,7 @@ interface StatCard {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [AddCardForm],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
@@ -27,4 +28,9 @@ export class Dashboard {
   ]);
 
   protected readonly upTrends = computed(() => this.cards().filter((card) => card.trend === 'up'));
+
+  addCard(card: StatCard) {
+    this.cards.update(current => [...current, card]);
+  }
+
 }

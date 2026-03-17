@@ -1,0 +1,28 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Titel</label>
+    <input id="title" formControlName="title" />
+    @if (form.controls.title.errors?.['required'] && form.controls.title.touched) {
+      <small class="error">Titel ist erforderlich</small>
+    }
+  </div>
+
+  <div>
+    <label for="value">Wert</label>
+    <input id="value" type="number" formControlName="value" />
+    @if (form.controls.value.errors?.['min']) {
+      <small class="error">Wert muss mindenstens 0 sein</small>
+    }
+  </div>
+
+  <div>
+    <label for="trend">Trend</label>
+    <select id="trend" formControlName="Trend">
+      <option value="up">⬆️ Steigend</option>
+      <option value="down">⬇️ Fallend</option>
+      <option value="stable">➡️ Stabil</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Karte hinzufügen</button>
+</form>
