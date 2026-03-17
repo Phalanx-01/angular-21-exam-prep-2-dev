@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { sign } from 'node:crypto';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './header.scss',
 })
 export class Header {
+  protected readonly title = signal('Dashboard');
+  protected readonly userName = signal('Luke Skywalker');
+  protected readonly sidebarOpen = signal(true);
 
+  toggleSidebar() {
+    this.sidebarOpen.update((open) => !open);
+  }
 }

@@ -1,1 +1,18 @@
-<p>header works!</p>
+<header>
+  <div>
+    <button (click)="toggleSidebar()">
+      @if (sidebarOpen()) {
+        Menu schliessen
+      } @else {
+        Menu öffnen
+      }
+    </button>
+    <h1>{{ title() }}</h1>
+  </div>
+
+  <!--Rechts: Username -->
+  <div>
+    <span>{{ userName() }}</span>
+  </div>
+</header>
+>
