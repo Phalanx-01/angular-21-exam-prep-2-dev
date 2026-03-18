@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-light: #e0e7ff;
+
+  --color-bg: #f1f5f9;
+  --color-surface: #ffffff;
+
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+
+  --color-up: #10b981;
+  --color-up-bg: #d1fae5;
+  --color-down: #ef4444;
+  --color-down-bg: #fee2e2;
+  --color-stable: #f59e0b;
+  --color-stable-bg: #fef3c7;
+
+  --sidebar-width: 240px;
+  --header-height: 64px;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    'inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}

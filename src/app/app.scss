@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    flex: 1;
+    margin-top: var(--header-height);
+}
+
+main {
+    flex: 1;
+    padding: 32px;
+    overflow-y: auto;
+}
