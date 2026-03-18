@@ -1,6 +1,6 @@
 import { Component, computed, effect, signal } from '@angular/core';
-import { AddCardForm } from "./components/add-card-form/add-card-form";
-import { SearchBar } from "./components/search-bar/search-bar";
+import { AddCardForm } from './components/add-card-form/add-card-form';
+import { SearchBar } from './components/search-bar/search-bar';
 
 interface StatCard {
   title: string;
@@ -34,18 +34,15 @@ export class Dashboard {
 
   protected readonly filteredCards = computed(() => {
     const term = this.searchTerm().toLowerCase();
-    if(!term) return this.cards();
-    return this.cards().filter(card =>
-      card.title.toLowerCase().includes(term)
-    );
+    if (!term) return this.cards();
+    return this.cards().filter((card) => card.title.toLowerCase().includes(term));
   });
 
-  onSearch(term:string) {
+  onSearch(term: string) {
     this.searchTerm.set(term);
   }
 
   addCard(card: StatCard) {
-    this.cards.update(current => [...current, card]);
+    this.cards.update((current) => [...current, card]);
   }
-
 }

@@ -9,7 +9,6 @@ import { debounceTime, distinctUntilChanged, Subject, filter } from 'rxjs';
   styleUrl: './search-bar.scss',
 })
 export class SearchBar {
-
   private readonly searchSubject = new Subject<string>();
 
   searchChanged = output<string>();
@@ -17,19 +16,20 @@ export class SearchBar {
   private readonly destroyRef = inject(DestroyRef);
 
   constructor() {
-    this.searchSubject.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      filter(term => term.length > 1),
-      takeUntilDestroyed(this.destroyRef)
-    ).subscribe(term => {
-      this.searchChanged.emit(term);
-    });
+    this.searchSubject
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        filter((term) => term.length > 1),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe((term) => {
+        this.searchChanged.emit(term);
+      });
   }
 
   onSearch(event: Event) {
     const input = event.target as HTMLInputElement;
     this.searchSubject.next(input.value);
   }
-
 }
