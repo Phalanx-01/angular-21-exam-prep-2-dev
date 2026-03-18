@@ -17,7 +17,7 @@ interface StatCard {
 export class Dashboard {
   constructor() {
     effect(() => {
-      console.log('Stats updated:', this.cards);
+      console.log('Stats updated:', this.cards());
     });
   }
 
