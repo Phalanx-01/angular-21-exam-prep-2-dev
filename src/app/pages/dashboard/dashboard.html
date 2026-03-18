@@ -1,7 +1,7 @@
 <h2>Dashboard</h2>
 
 <div class="cards-grid">
-  @for (card of cards(); track card.title) {
+  @for (card of filteredCards(); track card.title) {
     <div class="card">
       <h3>{{ card.title }}</h3>
       <p class="value">{{ card.value }}</p>
@@ -29,4 +29,5 @@
   }
 </ul>
 
+<app-search-bar (searchChanged)="onSearch($event)" />
 <app-add-card-form (cardAdded)="addCard($event)"/>

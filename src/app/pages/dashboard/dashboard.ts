@@ -1,5 +1,6 @@
 import { Component, computed, effect, signal } from '@angular/core';
 import { AddCardForm } from "./components/add-card-form/add-card-form";
+import { SearchBar } from "./components/search-bar/search-bar";
 
 interface StatCard {
   title: string;
@@ -9,7 +10,7 @@ interface StatCard {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [AddCardForm],
+  imports: [AddCardForm, SearchBar],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
@@ -28,6 +29,20 @@ export class Dashboard {
   ]);
 
   protected readonly upTrends = computed(() => this.cards().filter((card) => card.trend === 'up'));
+
+  protected readonly searchTerm = signal('');
+
+  protected readonly filteredCards = computed(() => {
+    const term = this.searchTerm().toLowerCase();
+    if(!term) return this.cards();
+    return this.cards().filter(card =>
+      card.title.toLowerCase().includes(term)
+    );
+  });
+
+  onSearch(term:string) {
+    this.searchTerm.set(term);
+  }
 
   addCard(card: StatCard) {
     this.cards.update(current => [...current, card]);
