@@ -2,11 +2,11 @@
 
 <div class="cards-grid">
   @for (card of filteredCards(); track card.title) {
-    <div class="card">
+    <app-stat-card [card]="card" [highlighted]="card.trend === 'up'" />
+
+    <!-- <div class="card">
       <h3>{{ card.title }}</h3>
       <p class="value">{{ card.value }}</p>
-
-      <!-- @switch für verschiedene Trend-Anzeigen -->
       @switch (card.trend) {
         @case ('up') {
           <span class="trend up">⬆️ Steigend</span>
@@ -18,7 +18,7 @@
           <span class="trend stable">➡️ Stabil</span>
         }
       }
-    </div>
+    </div> -->
   }
 </div>
 

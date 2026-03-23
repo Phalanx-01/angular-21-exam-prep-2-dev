@@ -11,64 +11,6 @@ h2 {
   margin-bottom: 32px;
 }
 
-.card {
-  background: var(--color-surface);
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-border);
-  transition:
-    box-shadow 0.2s,
-    transform 0.2s;
-
-  &:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-  }
-
-  h3 {
-    font-size: 0.813rem;
-    font-weight: 500;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-  }
-
-  .value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-text);
-    margin-bottom: 12px;
-    line-height: 1;
-  }
-
-  .trend {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 0.813rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-
-    &.up {
-      color: var(--color-up);
-      background: var(--color-up-bg);
-    }
-
-    &.down {
-      color: var(--color-down);
-      background: var(--color-down-bg);
-    }
-
-    &.stable {
-      color: var(--color-stable);
-      background: var(--color-stable-bg);
-    }
-  }
-}
-
 h3:not(.card h3) {
   font-size: 1.1rem;
   margin-bottom: 12px;

@@ -1,0 +1,5 @@
+<div class="card" [class.higlighted]="highlighted()">
+  <h3>{{ card().title }}</h3>
+  <p class="value">{{ card().value }}</p>
+  <span class="trend" [class]="card().trend">{{ trendLabel() }}</span>
+</div>

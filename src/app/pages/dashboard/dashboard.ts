@@ -1,16 +1,11 @@
 import { Component, computed, effect, signal } from '@angular/core';
 import { AddCardForm } from './components/add-card-form/add-card-form';
 import { SearchBar } from './components/search-bar/search-bar';
-
-interface StatCard {
-  title: string;
-  value: number;
-  trend: 'up' | 'down' | 'stable';
-}
+import { StatCard, StatCardComponent } from './components/stat-card/stat-card';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [AddCardForm, SearchBar],
+  imports: [AddCardForm, SearchBar, StatCardComponent],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
